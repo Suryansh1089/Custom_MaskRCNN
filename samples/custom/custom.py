@@ -88,8 +88,8 @@ class CustomDataset(utils.Dataset):
         subset: Subset to load: train or val
         """
         # Add classes according to the numbe of classes required to detect
-        self.add_class("custom", 1, "object1")
-        self.add_class("custom",2,"object2")
+        self.add_class("custom", 1, "pothole")
+        self.add_class("custom",2,"road_properties")
 
         # Train or validation dataset?
         assert subset in ["train", "val"]
@@ -133,9 +133,9 @@ class CustomDataset(utils.Dataset):
             #Add the classes according to the requirement
             for n in custom:
                 try:
-                    if n['label']=='object1':
+                    if n['label']=='pothole':
                         num_ids.append(1)
-                    elif n['label']=='object2':
+                    elif n['label']=='road_properties':
                         num_ids.append(2)
                 except:
                     pass
